@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function exportBlocks() {
+        if (confirm('Are you sure?'))
+            new Ajax.Request('<?php echo $this->getUrl('*/system/export/') ?>', {
+                method:     'post',
+                parameters: 'exportType=' + $('blockmanagement_impexp_sc_block_export_group_blockexport_typeselect').value,
+                onSuccess: function(transport)
+                {}
+            });
+    }
+    //]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>

@@ -1,0 +1,14 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function importBlocks() {
+        if (confirm('Are you sure?'))
+            new Ajax.Request('<?php echo $this->getUrl('*/system/import/') ?>', {
+                method:     'post',
+//                parameters: 'gridId=' + $('awesomecolumns_options_sc_columns_reset_awesomecolumns_gridselect').value,
+                onSuccess: function(transport){}
+            });
+    }
+    //]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>

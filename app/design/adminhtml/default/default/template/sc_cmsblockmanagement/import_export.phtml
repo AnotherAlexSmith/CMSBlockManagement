@@ -1,0 +1,153 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody>
+        <tr>
+            <td>
+                <h3>CMS Block Management - Import/Export</h3>
+            </td>
+            <td class="form-buttons">
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<form action="<?php echo Mage::getBaseUrl() . 'admin/importexport/import/' ?>" method="post" id="block_import_form" enctype="multipart/form-data">
+    <div>
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+    </div>
+    <div class="entry-edit">
+        <div class="section-config">
+            <div class="entry-edit-head collapseable" >
+                <a id="blockmanagement_impexp_sc_block_import_group-head" href="#" onclick="Fieldset.toggleCollapse('blockmanagement_impexp_sc_block_import_group', '<?php echo Mage::getBaseUrl() . "admin/system_config/state/" ?>'); return false;">Import Blocks</a>
+            </div>
+            <input id="blockmanagement_impexp_sc_block_import_group-state" name="config_state[blockmanagement_impexp_sc_block_import_group]" type="hidden" value="0" />
+            <fieldset class="config collapseable" id="blockmanagement_impexp_sc_block_import_group">
+                <legend>Import Blocks</legend>
+                <table cellspacing="0" class="form-list">
+                    <colgroup class="label" /><colgroup class="value" /><colgroup class="scope-label" /><colgroup class="" />
+                    <tbody>
+                    <tr id="row_blockmanagement_impexp_sc_block_import_group_importfile">
+                        <td class="label">
+                            <label for="blockmanagement_impexp_sc_block_import_group_importfile"> Choose file</label>
+                        </td>
+                        <td class="value">
+<!--                            <input id="time_condition" type="hidden" name="groups[sc_block_import_group][fields][importfile][value]" value="1398439860" />-->
+<!--                            <script type="text/javascript">-->
+<!--                                Event.observe($('carriers_tablerate_condition_name'), 'change', checkConditionName.bind(this));-->
+<!--                                function checkConditionName(event)-->
+<!--                                {-->
+<!--                                    var conditionNameElement = Event.element(event);-->
+<!--                                    if (conditionNameElement && conditionNameElement.id) {-->
+<!--                                        $('time_condition').value = '_' + conditionNameElement.value + '/' + Math.random();-->
+<!--                                    }-->
+<!--                                }-->
+<!--                            </script>-->
+                            <input id="blockmanagement_impexp_sc_block_import_group_importfile" name="block_management_import" value="" class="" type="file"/>
+                        </td>
+                        <td class=""></td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label for="blockmanagement_impexp_sc_block_import_group_blockimport_importoption">Choose import option</label>
+                        </td>
+                        <td class="value">
+                            <input type="radio" name="import_options[]" value="overwrite" checked>Overwrite conflicts<br>
+                            <input type="radio" name="import_options[]" value="skip">Skip conflicts<br>
+                        </td>
+                    </tr>
+                    <tr id="row_blockmanagement_impexp_sc_block_import_group_blockimport_importbutton">
+                        <td class="label">
+                            <label for="blockmanagement_impexp_sc_block_import_group_blockimport_importbutton"> </label>
+                        </td>
+                        <td class="value">
+                            <script type="text/javascript">
+                                //<![CDATA[
+                                function importBlocks() {
+                                    if (confirm('Are you sure?'))
+                                        new Ajax.Request('<?php echo Mage::getBaseUrl() . "admin/importexport/import/" ?>' , {
+                                            method:     'post',
+                                            parameters: $('block_import_form').serialize(true),
+                                            onSuccess: function(transport){}
+                                        });
+                                }
+                                //]]>
+                            </script>
+                            <button id="blockimport_importbutton" title="Import" type="submit" class="scalable " style="">
+                                <span><span><span>Import</span></span></span>
+                            </button>
+                        </td>
+<!--                        <td class="scope-label">[STORE VIEW]</td>-->
+                        <td class=""></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <script type="text/javascript">//<![CDATA[
+                Fieldset.applyCollapse('blockmanagement_impexp_sc_block_import_group');
+                //]]>
+            </script>
+        </div>
+    </div>
+</form>
+<form onSubmit="exportBlocks(); return false;" method="post" id="block_export_form" enctype="multipart/form-data">
+    <div>
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+    </div>
+    <div class="entry-edit">
+        <div class="section-config">
+            <div class="entry-edit-head collapseable" >
+                <a id="blockmanagement_impexp_sc_block_export_group-head" href="#" onclick="Fieldset.toggleCollapse('blockmanagement_impexp_sc_block_export_group', '<?php echo Mage::getBaseUrl() . "admin/system_config/state/" ?>'); return false;">Export Blocks</a>
+            </div>
+            <input id="blockmanagement_impexp_sc_block_export_group-state" name="config_state[blockmanagement_impexp_sc_block_export_group]" type="hidden" value="0" />
+            <fieldset class="config collapseable" id="blockmanagement_impexp_sc_block_export_group">
+                <legend>Export Blocks</legend>
+                <table cellspacing="0" class="form-list">
+                    <colgroup class="label" /><colgroup class="value" /><colgroup class="scope-label" /><colgroup class="" />
+                    <tbody>
+                    <tr id="row_blockmanagement_impexp_sc_block_export_group_blockexport_typeselect">
+                        <td class="label">
+                            <label for="blockmanagement_impexp_sc_block_export_group_blockexport_typeselect">Choose export option</label>
+                        </td>
+                        <td class="value">
+                            <input type="checkbox" name="export_options[]" value="blocks" checked>Blocks<br>
+                            <input type="checkbox" name="export_options[]" value="versions">Versions<br>
+                            <input type="checkbox" name="export_options[]" value="labels">Labels<br>
+                        </td>
+<!--                        <td class="scope-label">[STORE VIEW]</td>-->
+                        <td class=""></td>
+                    </tr>
+                    <tr id="row_blockmanagement_impexp_sc_block_export_group_blockexport_exportbutton">
+                        <td class="label">
+                            <label for="blockmanagement_impexp_sc_block_export_group_blockexport_exportbutton"> </label>
+                        </td>
+                        <td class="value">
+                            <script type="text/javascript">
+                                //<![CDATA[
+                                function exportBlocks() {
+                                    if (confirm('Are you sure?'))
+                                        new Ajax.Request("<?php echo Mage::getBaseUrl() . 'admin/importexport/export/' ?>", {
+                                            method:     'post',
+                                            parameters: $('block_export_form').serialize(true),
+                                            onSuccess: function(transport)
+                                            {}
+                                        });
+                                }
+                                //]]>
+                            </script>
+                            <button  id="blockexport_exportbutton" title="Export" type="button" class="scalable " onclick="exportBlocks()" style="">
+                                <span><span><span>Export</span></span></span>
+                            </button>
+                        </td>
+<!--                        <td class="scope-label">[STORE VIEW]</td>-->
+                        <td class=""></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <script type="text/javascript">//<![CDATA[
+                Fieldset.applyCollapse('blockmanagement_impexp_sc_block_export_group');
+                //]]>
+            </script>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,7 @@
+app/code/local/SnowCommerce/CMSBlockManagement app/code/local/SnowCommerce/CMSBlockManagement
+app/design/adminhtml/default/default/layout/sc_cmsblockmanagement.xml app/design/adminhtml/default/default/layout/sc_cmsblockmanagement.xml
+app/design/adminhtml/default/default/template/sc_cmsblockmanagement/ app/design/adminhtml/default/default/template/sc_cmsblockmanagement/
+skin/adminhtml/default/default/versions.css skin/adminhtml/default/default/versions.css
+js/sc_cmsblockmanagement/validation.js js/sc_cmsblockmanagement/validation.js
+app/etc/modules/SnowCommerce_CMSBlockManagement.xml app/etc/modules/SnowCommerce_CMSBlockManagement.xml
+app/etc/modules/SnowCommerce_CMSBlockManagement.xml app/etc/modules/SnowCommerce_CMSBlockManagement.xml

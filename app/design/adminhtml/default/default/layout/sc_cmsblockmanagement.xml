@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.0.1">
+    <adminhtml_cms_block_edit>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>versions.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>varien/form.js</script>
+            </action>
+            <action method="addJs">
+                <script>sc_cmsblockmanagement/validation.js</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <remove name="cms_block_edit"/>
+            <block type="sc_cmsblockmanagement/adminhtml_edit" name="edit"/>
+        </reference>
+        <reference name="left">
+            <block type="sc_cmsblockmanagement/adminhtml_edit_tabs" name="adminhtml_edit_tabs">
+                <block type="sc_cmsblockmanagement/adminhtml_edit_tab_main" name="adminhtml_edit_tab_main"/>
+                <block type="sc_cmsblockmanagement/adminhtml_versions" name="adminhtml_versions"/>
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>adminhtml_edit_tab_main</block>
+                </action>
+                <action method="addTab">
+                    <name>versions_section</name>
+                    <block>adminhtml_versions</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_cms_block_edit>
+
+    <adminhtml_block_index>
+        <reference name="content">
+            <block type="sc_cmsblockmanagement/adminhtml_versions_version_edit" name="edit"/>
+        </reference>
+    </adminhtml_block_index>
+
+    <adminhtml_label_index>
+        <reference name="content">
+            <block type="sc_cmsblockmanagement/adminhtml_labels" name="adminhtml_labels" />
+        </reference>
+    </adminhtml_label_index>
+
+    <adminhtml_importexport_index>
+        <reference name="content">
+            <block type="sc_cmsblockmanagement/adminhtml_importexport" name="adminhtml_importexport"
+                   template="sc_cmsblockmanagement/import_export.phtml"/>
+        </reference>
+    </adminhtml_importexport_index>
+</layout>
